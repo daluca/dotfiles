@@ -8,7 +8,10 @@ export ZSH="/home/daluca/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
+TERM="xterm-256color"
+ZSH_THEME="powerlevel9k/powerlevel9k"
+DEFAULT_USER=daluca
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -101,6 +104,21 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+POWERLEVEL9K_MODE="awesome-fontconfig"
+POWERLEVEL9K_DATE_FORMAT='%D{%Y%m%d}'
+# POWERLEVEL9K_SHORTEN_DIR_LENGTH=5
+# POWERLEVEL9K_SHORTEN_STRATEGY=truncate_from_right
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=6
+#POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=''
+POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX=''
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="\uE0B0 "
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context kubecontext docker_machine vcs virtualenv pyenv root_indicator dir_writable dir date time todo)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context root_indicator dir_writable kubecontext dir_writable dir time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs disk_usage)
 
 if [ -f ~/.zsh_aliases ]; then
 	. ~/.zsh_aliases
