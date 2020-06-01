@@ -105,3 +105,11 @@ source $ZSH/oh-my-zsh.sh
 if [ -f ~/.zsh_aliases ]; then
 	. ~/.zsh_aliases
 fi
+
+if [ -x "$(command -v kubectl)" ]; then
+	source <(kubectl completion zsh)
+fi
+
+if [ -x "$(command -v minikube)" ]; then
+	source <(minikube completion zsh)
+fi
