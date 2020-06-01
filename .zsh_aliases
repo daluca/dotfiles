@@ -1,0 +1,4 @@
+alias ls='ls -CFh --color=tty'
+alias ll='ls -l'
+alias l='ls -la'
+
