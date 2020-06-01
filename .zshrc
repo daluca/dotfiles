@@ -117,7 +117,7 @@ POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=''
 POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX=''
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="\uE0B0 "
 # POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context kubecontext docker_machine vcs virtualenv pyenv root_indicator dir_writable dir date time todo)
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context root_indicator kubecontext dir dir_writable time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon detect_virt ssh context root_indicator kubecontext vcs dir dir_writable time)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs disk_usage)
 
 if [ -f ~/.zsh_aliases ]; then
