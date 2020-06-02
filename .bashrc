@@ -115,3 +115,13 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+if [ -x "$(command -v kubectl)" ]; then
+	source <(kubectl completion bash)
+	alias k=kubectl
+	complete -F __start_kubectl k
+fi
+
+if [ -x "$(command -v minikube)" ]; then
+	source <(minikube completion bash)
+fi
