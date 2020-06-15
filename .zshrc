@@ -72,6 +72,8 @@ DEFAULT_USER=daluca
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  docker
+  docker-compose
 	zsh-syntax-highlighting
 	zsh-autosuggestions
 	git
@@ -117,17 +119,46 @@ POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=''
 POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX=''
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="\uE0B0 "
 # POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context kubecontext docker_machine vcs virtualenv pyenv root_indicator dir_writable dir date time todo)
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon detect_virt ssh context root_indicator kubecontext vcs dir dir_writable time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon detect_virt ssh context root_indicator vcs dir dir_writable time)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs disk_usage)
+
+# This speeds up pasting w/ autosuggest
+# https://github.com/zsh-users/zsh-autosuggestions/issues/238
+pasteinit() {
+OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
+	zle -N self-insert url-quote-magic  # I wonder if you'd need `.url-quote-magic`?
+}
+
+pastefinish() {
+	zle -N self-insert $OLD_SELF_INSERT
+}
+zstyle :bracketed-paste-magic paste-init pasteinit
+zstyle :bracketed-paste-magic paste-finish pastefinish
+# finish fast paste
 
 if [ -f ~/.zsh_aliases ]; then
 	. ~/.zsh_aliases
 fi
 
+#if [ -f ~/.profile ]; then
+#	. ~/.profile
+#fi
+
 if [ -x "$(command -v kubectl)" ]; then
 	source <(kubectl completion zsh)
+	POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon detect_virt ssh context root_indicator kubecontext vcs dir dir_writable time)
+	if [ -f $HOME/.kube/config ]; then
+		export KUBECONFIG=$HOME/.kube/config
+	fi
+	if [ -f $HOME/.kube/gainas ];then
+		export KUBECONFIG=$HOME/.kube/gainas:$KUBECONFIG
+	fi
 fi
 
 if [ -x "$(command -v minikube)" ]; then
 	source <(minikube completion zsh)
+fi
+
+if [ -x "$(command -v helm)" ]; then
+	source <(helm completion zsh)
 fi
