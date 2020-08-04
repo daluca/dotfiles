@@ -1,0 +1,54 @@
+{
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 10000,
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "terminal.integrated.shell.linux": "bash",
+    "remote.SSH.remotePlatform": {
+        "chives": "linux",
+        "parsley": "linux",
+        "gainas": "linux",
+        "rosemary": "linux",
+        "basil": "linux",
+        "ombi": "linux"
+    },
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.vscode": true,
+        "**/Tutorial 1": true
+    },
+    "window.zoomLevel": 0,
+    "latex-workshop.view.pdf.viewer": "browser",
+    "latex-workshop.latex.autoClean.run": "onBuilt",
+    "latex-workshop.latex.clean.subfolder.enabled": true,
+    "latex-workshop.message.warning.show": false,
+    "latex-workshop.message.error.show": false,
+    "latex-workshop.latex.clean.fileTypes": [
+        "**/*.aux",
+        "**/*.fdb_latexmk",
+        "**/*.fls",
+        "**/*.log",
+        "**/*.out",
+        "**/*.synctex.gz"
+    ],
+    // "editor.formatOnSave": true,
+    // "editor.formatOnType": true,
+    "python.formatting.provider": "black",
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": [
+        "--max-line-length=120"
+    ],
+    "python.linting.banditEnabled": true,
+    // "python.linting.pycodestyleEnabled": true,
+    // "python.linting.pydocstyleEnabled": true,
+    "python.linting.mypyEnabled": true,
+    "vs-kubernetes": {
+        "vs-kubernetes.helm-path.linux": "/home/daluca/.vs-kubernetes/tools/helm/linux-amd64/helm",
+        "vs-kubernetes.minikube-path.linux": "/home/daluca/.vs-kubernetes/tools/minikube/linux-amd64/minikube",
+        "vs-kubernetes.draft-path.linux": "/home/daluca/.vs-kubernetes/tools/draft/linux-amd64/draft"
+    },
+    "python.pythonPath": "C:\\Users\\lsleb\\AppData\\Local\\Programs\\Python\\Python38-32\\python.exe",
+}
