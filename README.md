@@ -6,7 +6,7 @@ git clone https://github.com/daluca/dotfiles.git ~/.dotfiles
 rsync -a --exclude=.git/ --exclude=README.md ~/.dotfiles/* ~/.dotfiles/.* ~/
 ```
 
-## Dependancies
+## Dependencies
 ### Install oh-my-zsh
 ``` bash
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
